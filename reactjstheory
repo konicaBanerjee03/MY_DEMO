@@ -1,0 +1,541 @@
+  https://dev.to/frontendengineer/10-reactjs-coding-exercises-with-codepen-exercise-and-solution--22k7
+https://www.codinn.dev/reactjs/reactjs-interview-question
+
+1. what is React. js —-javascript library
+
+React is a JavaScript library created for building fast and interactive user interfaces for web and mobile applications.
+The main objective of ReactJS is to develop User Interfaces (UI) that improves the speed of the apps.
+
+the package.json file is a configuration file that contains metadata about the project, dependencies, scripts, and other settings.
+
+Jquery is a js library.
+ 
+Components: reusable block of code
+
+2. features of react, advantages, limitations.
+Advantages:
+
+1. reusable components
+2. uses virtual dom, which makes fast.
+3. supports server side rendering
+4. Jsx made code to easy to read and write.
+5. unidirectional flow/one-directional:It is also known as one-way data flow, which means the data has one, and only one way to be transferred to other parts of the application.
+In essence, this means child components are not able to update the data that is coming from the parent component.
+
+dis-adv:
+
+1. react.js is just library not a framework.
+2.
+3.how to create components/types of components
+
+Transpiler :  it can convert the latest version of JavaScript code into the one that the browser understands. 
+
+Babel: Babel is a transpiler.
+
+Lifting state up in Reactjs: 
+
+Sometimes, we want the state of two components to always change together. To do it, remove state from both of them, move it to their closest common parent, and then pass it down to them via props. This is known as lifting state up
+
+MVC Architecture:
+3 main logical components: model view controller
+The controller is the component that enables the interconnection between the views and the model so it acts as an intermediary.
+The View component is used for all the UI logic of the application. It generates a user interface for the user.
+The Model component corresponds to all the data-related logic that the user works with. 
+
+functional ,class
+
+JSX---JSX ( JavaScript Expression ) allows us to write HTML elements in JavaScript and place them in the DOM without any createElement() or appendChild() methods.
+JSX converts HTML tags into react elements. 
+
+4. pure components:
+
+ If we extend a class with Pure Component, there is no need for shouldComponentUpdate() Lifecycle Method. ReactJS Pure Component Class compares the current state and props with new props and states to decide whether the React component should re-render itself or  Not.
+Pure Components restricts the re-rendering when there is no use for re-rendering of the component.
+
+
+Presentational and Container Components:
+The type of components is decided by components pattern. If the component decides how the data will be presented on the screen it is called as presentational component. If the component focuses on what data is to be shown to the user then it is called as container component
+
+5.state, props.
+State of a component is an object that holds some information that may change over the lifetime of the component.  whenever the state object changes, the component re-renders. 
+
+props:Props are inputs to components. 
+They are single values or objects containing a set of values that are passed to components on creation similar to HTML-tag attributes.
+Here, the data is passed down from a parent component to a child component.
+
+Props are immutable and states are mutable
+
+
+ Why is it necessary to start component names with a capital letter?
+In JSX, lower-case tag names are considered to be HTML tags.
+
+
+How to  set up a react project with create react app?
+npx create-react-app my-app
+cd my-app
+npm start
+
+6.uncontrolled components/controlled.
+In a controlled component, form data is handled by a React component. The alternative is uncontrolled components, where form data is handled by the DOM itself.
+
+7.different phases of component lifecycle
+
+three main phases
+1. mount--Mounting means putting elements into the DOM.
+2.update
+3.unmount
+methods
+The render() method is required, and is the method that actually outputs the HTML to the DOM.
+constructor()
+component didmount():This method is invoked once immediately after the component is mounted (inserted into the DOM).
+
+shouldComponentUpdate():This method is invoked before rendering, after receiving new props or state. It determines whether the component should re-render or not.
+component did update():This method is invoked immediately after updating occurs (props or state changes).
+
+
+unmount--
+component will unmount():This method is invoked immediately before a component is removed from the DOM.
+
+The shouldComponentUpdate method allows us to exit the complex react update life cycle to avoid calling it again and again on every re-render. It only updates the component if the props passed to it changes.
+
+The shouldComponentUpdate method is majorly used for optimizing the performance and to increase the responsiveness of the website but do not rely on it to prevent rendering as it may lead to bugs.
+
+
+
+8.higher order components
+In React, a higher-order component is a function that takes a component as an argument and returns a new component that wraps the original component.
+
+ how it’s enhance the component functionality :
+
+1. Reusability: HOCs allow you to reuse component logic across multiple components, which can save time and reduce code duplication.
+2. Flexibility: HOCs can take additional arguments, which allows you to customize the behavior of the HOC.
+
+REACT FIBER
+
+React Fiber is React's reconciliation engine introduced in React 16. It represents components as Fiber nodes and breaks rendering work into small units that can be paused, resumed, prioritized, and reused, enabling features like concurrent rendering and improved UI responsiveness.
+
+9.Reconciliation 
+is the process through which React updates the Browser DOM and makes React work faster.
+ React use a diffing algorithm so that component updates are predictable and faster. 
+React would first calculate the difference between the real DOM and the copy of DOM (Virtual DOM) when there's an update of components. 
+React stores a copy of Browser DOM which is called Virtual DOM. When we make changes or add data,
+ React creates a new Virtual DOM and compares it with the previous one.
+This comparison is done by Diffing Algorithm. Now React compares the Virtual DOM with Real DOM. 
+It finds out the changed nodes and updates only the changed nodes in Real DOM leaving the rest nodes as it is. This process is called Reconciliation
+
+diffing algo--
+
+
+10. fragments:Fragments allows to group a list of children without adding extra nodes to the DOM.
+
+11.Error boundaries:
+Error boundaries are React components that catch JavaScript errors anywhere in their child component tree, log those errors, and display a fallback UI instead of the component tree that crashed.
+Use static getDerivedStateFromError() to render a fallback UI after an error has been thrown. Use componentDidCatch() to log error information.
+
+
+NOTE  :  USEEFFECT USE CASES
+
+
+12.hooks: 
+The React JS useLayoutEffect works similarly to useEffect but rather works asynchronously like the useEffect hook, it fires synchronously after all DOM loading is done loading. This is useful for synchronously re-rendering the DOM and also to read the layout from the DOM. But to prevent blocking the page loading, we should always use the useEffect hook.
+
+1. useState :useState is React Hook that allows you to add state to a functional component. The Hook takes an initial state value as an argument and returns an updated state value whenever the setter function is called. 
+
+2 useEffect : Enables performing side effects in functional components, like data fetching or DOM manipulation.
+
+3 useMemo : This hook remembers the result of a function and only re-calculates if the inputs change.
+
+4 useCallback: This hook is used to memoize (remember) functions, so you don't have to recreate it every time your component re-renders, unless something it depends on changes.
+
+5 useRef: This hook lets you reference a value in your component. It doesn't cause the component to re-render when it changes and it remembers its value even after the component re-renders.
+
+6 UseContext: React Context is a way to manage state globally, It helps you pass data around components without having to manually pass it through props.
+
+7. UseReducer:
+Helpful for complex state logic or when the next state depends on the previous state,
+
+REACT.MEMO
+
+custom hooks
+How to create  and use custom hooks in react
+Custom hooks allow you to encapsulate and reuse logic across multiple components, making your code cleaner and more maintainable.
+
+13.strict mode -- lets you find common bugs in your components early during development.
+
+16.props drilling: practice of passing data from a parent component to its children and then from the children to their own children and so on, until the data reaches the desired component that needs it..
+
+--context api----> create, provider consumer--inside consumer it takes only function
+
+To avoid disadvantage of context api used use context hooks.
+
+--redux
+
+
+17..passing data from parent to child components---use props
+passing data from child to parent components--use callback
+
+18. forward refs: Ref forwarding is a technique for automatically passing a ref through a component to one of its children.
+
+It gives a child component a reference to DOM entity created by its parent component in React.
+
+19. stateful and stateless components
+The literal difference is that one has state, and the other does not. 
+That means the stateful components are keeping track of changing data,
+while stateless components print out what is given to them via props, or they always render the same thing.
+
+
+Props	                State
+Props are read-only.	State changes can be asynchronous.
+Props are immutable.	State is mutable.
+Props allow you to pass data from one component to other components as an argument.	State holds information about the components
+
+
+Synthetic event:
+Synthetic event is an object which acts as a cross-browser wrapper around the browser's native event Different browsers may have different names for the events.
+ They create a uniform interface that React uses to ensure that events execute consistently across browsers. 
+synthetic Event :React has its own event handling system which is very similar to handling events on DOM elements. The react event handling system is known as Synthetic Events. 
+
+Ex: e.preventDefault()
+
+ What are the components of react router?
+React Router is a library for handling routing and navigation in React JS Applications.It allows you to create dynamic routes .
+Add react-router
+The main components of React router are
+
+1. BrowserRouter:
+The top-level component that wraps your application. It uses the browser's History API for routing.
+
+
+2. Routes:
+
+It's a new component introduced in the v6 and a upgrade of the component. The main advantages of Routes over Switch that routes are chosen based on the best match instead of being traversed in order.
+
+3. Route:
+
+Route is the conditionally shown component that renders some UI when its path matches the current URL.
+Routes is a container for route definitions, and each Route defines a path and the component to render.
+4. Link:
+
+Link component is used to create links to different routes and implement navigation around the application. It works like HTML anchor tag.
+Provides a way to navigate between routes without refreshing the page.
+
+USE-PARAMS: useParams is a hook that allows you to access the dynamic parameters of the current route. It's particularly useful when your route paths include placeholders (like :id) for variables.
+
+
+
+React-fiber: The goal of React Fiber is to increase its suitability for areas like animation, layout, and gestures. Its headline feature is incremental rendering: the ability to split rendering work into chunks and spread it out over multiple frames.
+
+react localization : React itself doesn’t provide built-in localization features, but you can achieve localization by using libraries 
+Localization is the process of designing and developing your products
+render?
+
+
+Web pack in react:Its primary purpose is to bundle JavaScript to use in the browser.
+Js module bundler, takes all of the individual JavaScript files and other assets in a project, such as images and CSS, and combines them into a single bundle that can be loaded by the browser.
+
+Webpack is a powerful module bundler used in many JavaScript applications, including ReactJS. Its primary purpose is to bundle JavaScript files and other assets for use in a browser.
+
+Code splitting:feature supported by bundlers like Webpack, Rollup, and Browserify which can create multiple bundles that can be dynamically loaded at runtime.
+With the help of code splitting, ‘lazy load’ can be implemented, which means just using the code which is currently needed.
+
+Jest--Jest is a well-liked testing tool that makes it simple to test JavaScript applications, particularly those created using JavaScript-based frameworks like React. 
+
+Mobx-- a state management library for React applications.
+
+
+map/Forech
+foreach--it doesn't create a new array nor return anything.
+map---it creates a new array.
+
+
+lazy loading:
+Lazy loading helps to load the web page quickly and presents the limited content to the user that is needed for the interaction .
+
+DOM:DOM is basically the representation of the same HTML document but in a tree-like structure composed of objects. JavaScript cannot understand the tags(<h1>H</h1>) in HTML document but can understand object h1 in DOM.
+DOM: it is a tree like structure, it defines how to access, manipulate, and modify document elements using scripting languages like JavaScript.
+
+Fetch data using api ways in react:
+using Fetch API
+using Axios library
+using async-await syntax
+using custom hooks
+using React Query library
+using GraphQL API
+
+
+Fetch  and Axios both are js libraries  used for making http requests  from a web. Browser.
+
+Fetch—.then .catch 
+Axios ——axios. Get , .then .catch
+Axios, which is a popular library is mainly used to send asynchronous HTTP requests to REST endpoints
+
+
+How react code executed:
+
+1.writing react code with jsx
+2.babel transpilation
+3.react components
+4.rendering process
+5.mounting and updating
+6.event handling
+7.rendering in the browser.
+
+
+
+
+Keys in React:
+A “key” is a special string attribute you need to include when creating lists of elements in React. Keys are used in React to identify which items in the list are changed, updated, or deleted.
+Keys are used to give an identity to the elements in the lists. 
+
+
+Assigning indexes as keys is highly discouraged because if the elements of the arrays get reordered in the future then it will get confusing for the developer as the keys for the elements will also change.
+
+
+Local storage vs session storage vs Cookies:
+localStorage data does not expire or deleted, whereas sessionStorage data is cleared when the page session ends.
+Local storage  can store upto 10mb of data while session stores 5 mb of data
+Local storage  data can be accessible  from any window while data from session only accessible from same browser window.
+
+
+
+Cookies:The storage capacity of Cookies is 4KB
+
+
+REDUX AND Architecture:
+
+Redux is a pattern and library for managing and updating global application state, where the UI triggers events called "actions" to describe what happened, and separate update logic called "reducers" updates the state in response.
+
+Redux Architecture:
+
+1. Store The store is the central piece of Redux architecture. It holds the entire state of your application as a single JavaScript object.
+The store is created using the createStore() function,
+
+2.Action. An action is a plain JavaScript object that describes an event or intention to change the state. It must have a type property that indicates the type of action being performed, and it can have additional data in a payload.
+3. Reducer: A reducer is a pure function that takes the current state and an action as arguments and returns a new state. Reducers determine how the state should change in response to an action.
+4. Dispatch: dispatch is a function available on the Redux store that triggers an action to change the state.
+It is used to send actions to the Redux store to trigger state changes.
+
+
+
+CreateStore —The store is created using the createStore() function,
+useSelector()—hook:useSelector is a hook provided by the react-redux library that allows you to access the Redux store's state within functional components. It replaces the need for the connect function for reading state from the store.
+Provider—     Provider is a component from the react-redux library that makes the Redux store available to the entire React application or a specific part of the application.
+combineReducer:
+Use the combineReducers() function from Redux to merge multiple reducers into a single root reducer.
+
+Redux Middleware:  Middleware is added to the store during its creation using applyMiddleware() in Redux.       applyMiddleware()
+Redux middleware provides a way to extend Redux's capabilities by intercepting and modifying dispatched actions before they reach the reducers.
+
+Uses of middleware :Middleware can handle side effects, asynchronous operations, logging, crash reporting, and more.
+
+Handle Asynchronous Logic: Redux, by default, works with synchronous actions, but middleware (like redux-thunk or redux-saga) can handle async operations such as API calls, allowing you to dispatch actions before and after the async task completes.
+Logging and Debugging: Middleware like redux-logger can be used to log actions and state changes, helping developers track and debug the app's behavior.
+
+
+THUNK/SAGA:https://chatgpt.com/c/66eedc9f-a268-8002-b187-8a6f1c5d0db1
+
+REDUX TOOLKIT
+https://chatgpt.com/c/66f53b78-44fc-8002-b80b-d7fb8a7fbabb
+
+HOOKS IN REDUX
+
+1. use selector() To access state from the Redux store.
+2. useStore(): 
+Access the whole Redux store
+3.useDispatch() Dispatch actions to Redux store.
+
+
+DISADVANTAGES OF CONTEXT API
+Debugging is difficult in the case of a nested component tree.
+Simple use and limited to small-scale applications.
+
+Components:
+You use the createContext() function to create a context object.
+React.createContext: Used to create a context object.
+Provider: 
+Wraps the component tree or part of it.
+
+
+Consumer:
+A component that subscribes to the context and accesses the provided data.
+
+
+
+
+
+The main differences between <>, <div>, and <React.Fragment>
+
+<> Purpose: Used to group multiple elements without adding extra nodes to the DOM.
+<div >:Purpose: A standard HTML element used to wrap content.
+
+
+
+USEMEMO VS REACT.MEMO
+
+Use memo : 
+
+1. hook
+2 prevents pre-rendering of functional component
+
+
+Reat.memo 
+1.its a higher order component 
+
+2.  memorises 
+
+
+
+TREE SHAKING
+Tree shaking in React refers to the process of eliminating dead or unused code from the final JavaScript bundle during the build process. This optimization technique is crucial for reducing the application's bundle size, leading to faster load times and improved performance.
+
+
+
+
+
+Difference between redux and flux
+
+Flux architecture has multiple stores that are coordinated together by the dispatcher and when there is a change all the stores need to update themselves. But in Redux we have a single store. A single store that handles the entire application. Any changes to the store are done through actions.
+
+ progressive web apps
+A Progressive Web App (PWA) is a web application that behaves like a native mobile app, but runs in a browser.
+1. Responsive
+Works on mobile, tablet, and desktop.
+2. Offline Support
+Uses a service worker to cache data, so it works even without internet.
+3. App-like Experience
+Looks and feels like a native app (no browser UI after install).
+4. Installable
+Users can “Add to Home Screen” without going through app stores.
+5. Fast Performance
+Loads quickly using caching strategies.
+6. Push Notifications
+Can send notifications like mobile apps.
+7. Secure
+Runs over HTTPS.
+
+
+how to perform security in react application:
+. Authentication and Authorization
+Prevent CSRF (Cross-Site Request Forgery)
+
+
+
+How to optimize react application:
+1.Memorization——usecallback(), usememo()
+2. Lazy loading
+3.code splitting
+4.React fragments
+Use tools like performance.now() or libraries like react-performance-measurement to measure specific areas of your application's performance.
+	•	Webpack: Utilize Webpack's code splitting features to split your bundle into smaller chunks, loading only what is needed for the initial page load.  
+
+
+difference between package.json/package.lock json
+1. t contains metadata about the project, including:
+	•	Name, version, description, author, etc.
+	•	Dependencies (under "dependencies" and "devDependencies")
+	•	Scripts (e.g., "start": "node server.js")
+
+2.It is auto-generated when you run npm install.
+It locks the exact versions of dependencies and their sub-dependencies.
+Ensures that everyone installing the project gets the exact same versions of dependencies.
+Prevents unintended version mismatches across different environments.
+
+
+how to update package. lockjson——npm update
+
+
+useParams is used to extract dynamic values from the URL in React Router.
+
+Mounting/Rendering
+
+Mounting:Mounting refers to the initial creation and insertion of a component into the DOM. It happens only once in the component's lifecycle, when the component is first rendered and added to the DOM tree. The componentDidMount lifecycle method is called after the component is mounted.
+
+Rendering:it can happen multiple times throughout the component's lifecycle, triggered by changes in props or state.
+
+
+
+What security features should be taken while designing API's?
+
+1.Authentication
+Make sure every request is coming from a verified user or system.
+2. Authorization
+Even if a user is authenticated, they shouldn’t access everything.
+3.HTTPS Everywhere
+4.Data Protection/Data Encryption : use hashing + salt for passwords (e.g., bcrypt, Argon2).
+5.CORS (Cross-Origin Resource Sharing)—Access-Control-Allow-Origin: *
+Control who can access your API.
+	•	Allow only trusted origins
+	•	Avoid * in production
+	•	Restrict methods and headers
+6. Rate Limiting & Throttling
+
+
+
+
+React Query is a data-fetching and state management library for React.
+Instead of writing manual useEffect + useState + fetch boilerplate, React Query gives you ready-made hooks like useQuery and useMutation.
+	•	The useMutation hook is used for performing data modifications (e.g., POST, PUT, DELETE requests) and handling their effects on cached data.
+
+	•	useQuery Hook: The primary hook for fetching data, taking a unique queryKey and a queryFn (a function that returns a promise, typically an API call).
+
+
+
+web core vitals:  These are a set of metrics defined by Google to measure the user experience quality of a web page.
+
+
+Solve problems based on state lifting, Form, state management
+
+
+
+
+Export/default export
+
+Export:   You can export multiple values from a file.
+You must use {} and the names must match (add, subtract).
+
+
+
+Default: 
+Each file can have only one default export.
+Importer can give any name they want.
+
+difference between vite and web pack
+Both Vite and Webpack are build tools/bundlers for modern JavaScript applications, but they differ in architecture, performance
+
+
+XSS—CROSS SITE SCRIPTING
+CSRF—CROSS SITE REQEST FORGERY
+
+XSS is an attack where a malicious user injects JavaScript code into your website, which then runs in other users’ browsers.
+CSRF tricks a logged-in user into performing an action without their consent.
+
+LATEST HOOKS INTRODUCED
+
+useTransition:is a React Hook that lets you render a part of the UI in the background.
+useActionState
+useId is a React Hook for generating unique IDs that can be passed to accessibility attributes.
+useOptimistic hook
+
+
+
+
+
+
+
+Authentication Methods
+1. Http:username and pwd
+2. Api key—Server gives a unique API key
+Client sends it with each request
+3.. Token-Based Authentication (JWT)
+	1	Server returns a token (JWT)
+	2	Client sends token in headers:
+
+4.OAuth
+Allows login via third-party providers without sharing password.
+
+5.Multi-Factor Authentication (MFA)
+
+
+
+
+

@@ -1,0 +1,642 @@
+=https://builtin.com/software-engineering-perspectives/javascript-interview-questions
+
+1.What is JavaScript(JS)
+It is a light-weighted programming language (“scripting language”) for developing interactive web pages.
+ It can insert dynamic text into the HTML elements. JavaScript is also known as the browser’s language.
+
+
+
+2. What are the features of JavaScript?
+A--platform independent
+B--- single threaded 
+
+Dynamic
+3. How can we create an object in JS?/ different ways
+var object = 
+        { 
+         name: "obj",
+         age: 10
+         };
+
+4.How many types of functions JS support?
+A function in JavaScript can be either named or anonymous.
+
+Template literals are enclosed by backtick (`) characters instead of double or single quotes.
+
+Primitive types are copied by value.(string, Number, Booloean)
+Non-primitive types are copied by reference.(Object , Array, Function)
+
+
+5.different type of data type in javascript.
+
+String
+Number
+Boolean
+Null 
+Objects
+undefined
+
+30.coercion in js.
+Coercion in JavaScript refers to the process of converting a value from one data type to another. 
+
+Explicit and implicit coercion:
+Explicit--- achieved through methods
+Implicit---automatically occurs during operations.
+
+Double equals (==) will try to convert the values to the same data type and then try to compare them. But triple equals (===) strictly compares the value and the datatype.
+
+6.hosting in js---all variables and function declaration moved to top.
+ Function hoisting means that you can call a function before it is declared in your code, and it will still work.
+
+
+7.diff between var and let and const
+
+8. js is statically or dynamic.?
+dynamic
+
+9.IIFE--IIFE (Immediately Invoked Function Expression) is a JavaScript function that runs as soon as it is defined.
+
+10. strict mode- it prevents certain actions from being taken and throws more exceptions.
+
+11.callback:A callback is a function passed as an argument to another function
+
+13. promise (resolve, reject)
+.then and catch 
+
+Promises are objects representing the eventual completion or failure of an asynchronous operation. They provide a cleaner way to handle asynchronous code, avoiding "callback hell."
+
+Promises are considered Micro tasks, while setTimeout events are categorized as Macro tasks. Consequently, the Event Loop prioritizes completing all Micro tasks (Promises) in the queue before moving on to the next Macro task (like setTimeout), even if the delay specified in setTimeout is zero
+
+States of promises:
+
+Pending
+Fulfilled
+Rejected
+Why promises over callback ? 
+
+
+/ async await
+14.this keyword-------this inside function using function keyword then its an object ,alone this is global object,  event--element
+15.arrow functions
+16.es6 functions
+
+17. js selectors
+
+18. array methods in js
+19.string methods in js
+
+20. closures in js----closures is an inner function that has accessed to the outer function 
+21.higher order fun .---that takes function and returns  function
+
+22.Event delegation in Js:
+Event delegation in JavaScript is a pattern that efficiently handles events. 
+Events can be added to a parent element instead of adding to every single element. It refers to the process of using event propagation (bubbling) to handle events at a higher level in the DOM than the element on which the event originated.
+ This can be done on a particular target element using the .target property of an event object.
+
+
+BENEFITS OF EVENT DELEGATION
+1.Performance improvement: This reduces memory usage and improves performance, especially in large or dynamic DOM structures.
+2. Cleaner and simpler code
+3.Easy maintenance
+if you need to change the event handler, you only change it in one place (the parent).
+
+
+Event propagation :
+Propagation refers to how events travel through the Document Object Model (DOM) tree.
+ event.stopImmediatePropagation():
+
+event bubbling, capturing, 
+
+Event Capturing is opposite to event bubbling, where in event capturing, an event moves from the outermost element to the target.
+
+
+--stopImmediatePropagation(), along with the event propagation, other event handlers will also be prevented from execution
+--You can use navigator object to detect a browser language preference as below,
+
+AJAX allows web pages to be updated asynchronously by exchanging small amounts of data with the server behind the scenes. 
+This means that it is possible to update parts of a web page, without reloading the whole page.
+
+23. memorization---used to reduce time consuming by saving in cache 
+
+memoization is an optimization technique that makes applications more efficient and hence faster. It does this by storing computation results in cache, and retrieving that same information from the cache the next time it's needed instead of computing it again.
+
+24.event loop
+event looping:
+
+The event loop continuously checks the call stack and the callback queue. If the call stack is empty, it takes the first function from the callback queue and pushes it onto the call stack for execution.
+
+
+
+25. call, apply and bind
+26.Fetch api, axios
+
+27. function currying: It is a technique in functional programming, 
+that transforms the function of multiple arguments into several functions of a single argument in sequence. 
+
+Currying transforms a function that takes multiple arguments, into a series of function  that can be called one after another.
+a-bind b-clousures
+
+28. use-strict in js.---enables js script mode.
+
+
+29. need of event.preventDefault() in forms:
+The preventDefault() method cancels the event if it is cancelable, meaning that the default action that belongs to the event will not occur. 
+For example, this can be useful when: Clicking on a "Submit" button, prevent it from submitting a form.
+
+
+
+31. let/var/const
+
+var- has function scope,  possible to re-declare the variable in the same scope
+let---has block scope, not possible 
+
+32. variable shadowing in js: The inner scope variable shadowed the outer scope variable.
+note: let a;
+console.log(typeof a); // "undefined"
+const f = null;
+console.log(typeof f); // "object"
+
+JSON.parse() is a function in JavaScript used to parse JSON (JavaScript Object Notation) strings into JavaScript objects.
+The JSON. stringify() method converts a JavaScript object or value to a JSON string format.
+
+
+--- check if an object is empty or not 
+using Object.keys().length
+const obj1={
+    name:"kon"
+}
+const x=Object.keys(obj1).length
+console.log(x)//1
+
+
+
+Object.entries():The Object.entries() method returns an array of the key/value pairs of an object.(convert obj into array)
+
+HOW TO CONVERT ARRAY INTO OBJECT:
+1.fromEntries(Object.fromEntries() expects an array of key-value pairs)
+2. Using spread
+3.Array values as object properties using reduce()
+
+4. Object .assign
+const arr = ["a", "b", "c"];
+const obj = Object.assign({}, arr);
+// { '0': 'a', '1': 'b', '2': 'c' }
+
+const arr=[1,2,3,4]
+const arr1={...arr}
+console.log(arr1)
+const numerickeys=Object.keys(arr1).map(Number)//keys into number
+console.log(numerickeys)
+
+
+33. Pure function:Same inputs always return same outputs
+
+
+34. Promises methods:
+
+1.promise.all--When all input promises have been resolved or the iterable input does not contain a promise, the returned promise will be resolved.
+
+This promise resolves when all the input promises have resolved, or it rejects as soon as any one of the input promises rejects.
+
+2.promise. all-settled--Unlike Promise.all(), Promise.allSettled() does not short-circuit when one of the promises is rejected; instead, 
+it waits for all promises to settle, providing information about each one.
+
+3.promise.any---Promise.any() rejects with an AggregateError if no promise fulfills.
+
+4.promise.race---Promise.race() method returns a promise that fulfills or rejects as soon as one of the promises in an iterable fulfills or rejects, 
+with the value or reason from that promise.
+
+
+35. attribute vs properties.
+36. this
+37.scopes in js
+local/global/block
+
+Any variable that you declare inside a function is said to have Local Scope.
+block scope does not work with the var keyword. You can either use let or const keywords for that.
+
+
+38. === vs ==
+
+39. slice/splice.
+
+40.The freeze() method is used to freeze an object.
+ Freezing an object does not allow adding new properties to an object ,prevents from removing and prevents changing the enumerability, configurability, or writability of existing properties.
+ i.e, It returns the passed object and does not create a frozen copy.
+
+map/filter/reduce
+
+Reduce:applies a function against an accumulator and reduce it in single value.
+
+Rest:Rest Operator: It allows a function to accept an indefinite number of arguments if we are not sure how many arguments will receive.
+
+41. MobX react is a state management library for JavaScript applications, including React.
+
+42.Oops
+Pillars of oops:
+inheritance, Polymorphism, Encapsulation and Data Abstraction.
+
+INSTANCE vs OBJECT:
+An instance of a class is an object. 
+
+A javascript object is an entity having state and behaviour (properties and methods)
+Js object have special  property called prototype
+Note: if object and prototype have same methods objects methods will be used.
+
+Class: class is a template for creating objects
+This keyword: refers to an object.
+
+Every object in JavaScript has a built-in property, which is called its prototype.
+
+43. Inheritance----using extend keyword
+Note: if child and parent have same method , child method will use(method overriding)
+super(): By calling the super() method in the constructor method, we call the parent's constructor method and gets access to the parent's properties and methods:
+
+Javascript window object:
+
+Location
+History. ex—window.history
+Document 
+Navigator
+Reload 
+
+
+DOM: it is a tree like structure, it defines how to access, manipulate, and modify document elements using scripting languages like JavaScript.
+
+DOM Manipulation:  
+access
+1. document.get Element by id---#(symbol of id) unique
+2. document.get ElementsbyclassName---.(symbol .)----return html collection
+3. document. get ElementsbyTagName
+4. Document.query Selector---we can pass id or class or tag like p----return first element 
+5. Document.query SelectorAll()---return all elements (node list)
+
+Properties: get, set(change)
+1. tagName
+2.innerText: return text content of element and all its children.
+3. innerHtml: return html content including text
+4. Text content: return text content event for hidden elements.
+
+Note: node. first child property
+Node. last child property
+Children
+
+Attributes:
+1. getAttribute(att)---gives the value of attribute
+2. setAttribute(att, value)// completely override
+
+
+3. classList: classList.add(classname)
+The classList property is read-only, but you can use the methods listed below, to add, toggle or remove CSS classes from the list:
+
+Styles:
+Node.style: The style property returns the values of an element's style attribute.
+document.getElementById("myH1").style.color = "red";
+
+CreteElement()
+Insert elements:
+Node. append(el)
+Node.prepend(el) : before the first child of the ParentNode. 
+Node.before(el)
+Node.after(el)
+Delete:
+Node.remove()
+
+Example 
+const button=document.querySelector('.btn');
+const text=document.getElementById('text')
+button.addEventListener('click',()=>{
+  text.innerText="hey success"
+  button.innerText="";
+})
+
+
+
+
+
+How many ways an HTML element can be accessed in JavaScript code? 
+There are four possible ways to access HTML elements in JavaScript which are:
+
+getElementById() Method: It is used to get the element by its id name.
+getElementsByClass() Method: It is used to get all the elements that have the given classname.
+getElementsByTagName() Method: It is used to get all the elements that have the given tag name.
+querySelector() Method: This function takes CSS style selector and returns the first selected element.
+
+EVENTS :
+1. Inline handling
+2. .event
+3.    Event listener (ex-addEventListener)
+
+
+
+TYPESCRIPT VS JAVASCRIIPT
+
+Typescript static while javascript is dynamic
+Typescript file extension .ts or .tsx while in javascript its .js or .jsx
+Ts is oops language and js is prototype -base language
+
+
+
+Advantages of using immutable data structures in javascript:
+
+have fewer bugs and data races. Immutability eliminates the possibility of accidentally modifying data in place, which can lead to data races and concurrency issues.
+Object.freeze().
+
+DOMContentLoaded event:
+DOMContentLoaded event occurs after the main HTML content has been fully loaded and processed. 
+
+Load Event:
+The load event is fired when the whole page has loaded, including all dependent resources such as stylesheets, scripts, iframe, and images, 
+
+
+what are potential pitfalls of using closure specially in loops:
+
+Disadvantages of closures: 
+
+1.Memory leak
+they can create memory leaks, which are situations where unused or unnecessary data remains in memory and consumes resources. This can happen when you create closures inside loops, event handlers, or callbacks that reference variables that are no longer needed or updated. To avoid memory leaks, you should use let or const instead of var to declare variables, as they have block scope and are not hoisted to the global scope.
+
+Issue: Closures can lead to increased memory usage because the variables referenced by the closure remain in memory as long as the closure exists. This is due to the fact that the closure holds a reference to the variables in the outer function, preventing garbage collection from freeing that memory.
+
+Debugging Complexity:Closures can make debugging and reasoning about code more difficult, especially when nested or used in asynchronous code.
+
+
+Javascript String methods: All string methods produce a new string without altering the original string.
+The trim() method removes whitespace from both sides of a string:
+
+
+For in :
+The JavaScript for in statement loops used to iterate through the properties of an Object:
+
+for(const key in person)
+Console.log(person[key])
+
+For of:
+For of loop used to iterate over any iterable object like arrays, strings, sets, etc.
+
+Shallow copy:
+This means that if you change the nested properties in one object, those changes will reflect in the other because they share the same memory reference.
+
+Deep copy:This ensures that changes made to one object do not affect the other. Each object is stored in a separate memory location, making them entirely independent.
+the structuredClone() method is used to create a deep copy of a JavaScript object
+stringify()
+
+Generators:
+Stack vs heap 
+In JavaScript, primitive values (such as numbers, strings, booleans, etc.) are stored in the stack, while objects (such as arrays, functions, etc.) are stored in the heap.
+
+The call() method takes arguments separately.
+The apply() method takes arguments as an array.
+
+PROTOTYPE: javascript objects have a special property called prototype that is either Null or references another object.
+We can set prototype by __proto__
+Prototype chaining is a feature of JavaScript's object-oriented programming model that allows objects to inherit properties and methods from other objects via their prototype. In JavaScript, every object has a hidden property called [[Prototype]] (or __proto__ in some implementations), which refers to another object. This creates a chain of objects that form a prototype chain. When you try to access a property or method on an object, JavaScript looks for it in the object itself. If it doesn't find it, it looks at the object's prototype, and this process continues up the chain until the property or method is found or the end of the chain is reached (i.e., null).
+
+
+
+ASYNC AWAIT
+The async keyword is used to declare a function as asynchronous. An async function returns a promise. If the function returns a value, the promise will be resolved with that value. If the function throws an error, the promise will be rejected with that error.
+The keyword async before a function makes the function return a promise:
+The await keyword makes the function pause the execution and wait for a resolved promise before it continues:
+
+Control flow functions in JavaScript are functions that control the flow of execution in asynchronous programming. They help manage the execution order of code, especially when dealing with callbacks, promises, or asynchronous operations. Below are some key concepts and examples of control flow functions:
+
+
+
+Debouncing delays the function execution until the event has stopped firing for a certain time.
+Throttling limits the function execution to once every specified time interval.
+Throttling is a technique in which, no matter how many times the user fires the event, the attached function will be executed only once in a given time interval. Throttling ensures that the function executes at regular intervals.
+JavaScript throttling limits the frequency at which a function is executed, ensuring it runs at most once in a specified time interval. 
+
+
+Lexical scope is a fundamental concept in programming that determines the accessibility of variables and functions based on where they are defined in the source code.
+
+
+Object.create() in JavaScript is a method used to create a new object with a specified prototype object and properties.
+Object.assign()—if the target object already has a property with the same name as a property in the source object, the property in the target object will be overwritten.
+The Major difference is that keys of WeakMap cannot be a primitive data type. The keys must be of type object and values can be of any data type. 
+
+Poly-fills are pieces of code that provide modern functionality to older browsers that lack native support for those features. 
+
+Error handling in JavaScript promises can be done using .catch(), .then() with two arguments, or using async/await with try...catch.
+
+Use forEach() when you want to perform side effects or actions on each element and don't need a new array.
+Use map() when you need to transform each element in the array and need the result as a new array.
+
+TREE SHAKING 
+
+Methods:
+
+1. Json. stringify
+2. Json.parse
+3.flat
+4.object.create:used to create a new object, using an existing object
+5.object.assign
+const T={a:1,b:4,c:9}
+const s={b:8,d:7}
+const x=Object.assign(T,s)
+console.log(T)
+console.log(x)
+
+
+6. structuredclone()
+7.object.keys.length
+8. Object.entries()
+9.freeze()
+
+
+Object.freeze()/object.seal()
+
+In object.freeze()—Prevents adding, removing, or modifying properties of an object.
+
+Object.seal()—
+Prevents adding or deleting properties but allows modification of existing values
+
+
+
+HOW JS CODE EXECUTES
+1. Parsing
+	•	The JavaScript engine first parses the code (source code).
+	•	It breaks the code into smaller chunks called tokens (tokenization).
+	•	It then generates an Abstract Syntax Tree (AST), a tree-like structure representing the program's syntax.
+
+2. Compilation (JIT Compilation)
+JavaScript engines use Just-In-Time (JIT) compilation.
+The JIT compiler optimizes frequently executed code ("hot code") by translating it directly into machine code for faster execution.
+
+3. Execution
+	•	The Call Stack manages function execution.
+	•	The engine's Execution Context is created for global code, functions, and blocks, including variables and their scopes.
+	•	Code execution happens line-by-line unless asynchronous operations (e.g., setTimeout, Promises) are involved.
+
+4. Memory Management
+JavaScript has a Heap for allocating memory dynamically and a Stack for managing function calls and execution contexts.
+Garbage collection (GC) automatically frees memory that's no longer in use.
+5. Handling Asynchronous Code
+The Event Loop coordinates tasks and manages asynchronous code like
+
+
+ASYNC/DEFER
+The async and defer attributes are used to control how external JavaScript files are loaded and executed in an HTML document. Both attributes are applied to <script> tags, but they behave differently.
+Async
+Order of Execution: Scripts are not guaranteed to execute in the order they appear in the document.
+
+Defer
+scripts with defer are executed in the order they appear in the document.
+The script is executed after the HTML document is fully parsed, just before the DOMContentLoaded event.
+
+Callbackhell…< promises chaining < async await 
+
+
+
+INTERCEPTORS
+Request and response interceptors in the browser are functions that allow developers to modify or intercept network requests and responses that are being sent or received by the browser.
+They allow you to modify the request or response before it is sent or received by the server.
+
+
+
+
+CODING QUESTIONS:
+1. Hoisting
+2. Closure
+3. Promises, set timeout, iife, currying, asyncawait
+4. Fetch 
+5.string methods
+6. For in  / for of
+7.es6 methods
+8. Call, apply, bind’’Invokes the function immediately, with this set to the first argument. Additional arguments are passed one by one.
+10.callback example
+11. Deep/shallow copy
+function sum(...no){
+    return no.reduce((acc,curr)=>
+    acc+curr,0)
+    
+}
+console.log(sum(9,8,7))
+12. destructuring
+React
+1. Counter
+2.forms
+3.list ,todo, hide
+4. Alerts . Popup
+5.fetch ,axis
+6. Redux, context api
+7.focus
+8.timer
+9. search bar
+10. Pagination 
+
+nput: nums = [2,7,11,15], target = 9
+x=3+2+"7"
+
+Middleware
+
+for(var i=0;i<10;i++){ setTimeout(()=>{ console.log(i); },1000); }. 
+
+for(let i=0;i<10;i++){ setTimeout(()=>{ console.log(i); },1000); }
+
+
+
+
+
+
+
+Difference between async and defer:
+
+Async:The async and defer attributes are used in <script> tags in HTML to control how JavaScript files are loaded and executed,
+
+Async async scripts are executed as soon as they're downloaded,
+
+Defer: defer scripts are executed only after the HTML parsing is complete. 
+
+
+
+TEMPORAL DEAD ZONE
+The Temporal Dead Zone (TDZ) is a concept in JavaScript that refers to the time between when a variable is declared using let or const and when it is initialized (assigned a value). During this period, accessing the variable will throw a ReferenceError.
+The Temporal Dead Zone is the time between when a variable is hoisted and when it is declared using let or const, during which you cannot access the variable—trying to do so results in a ReferenceError.
+
+
+console.log(b); // ✅ undefined
+var b = 10;
+
+GENERATORS:A generator is declared using the function* syntax and uses the yield keyword to pause execution.
+A generator function is a special type of function that can pause its execution at any point and resume later. They are defined using the function* syntax and use the yield keyword to pause execution and return a value.
+
+function* genfunc(){
+    yield "hy";
+    yield "my";
+    yield "user"
+    
+}
+const x=genfunc()
+console.log(x.next())
+console.log(x.next())
+console.log(x.next())
+console.log(x.next())
+
+
+
+How to move from one page to another in js
+
+
+1.window.location.href
+2.window.location.replace
+
+
+
+
+
+why typescript over javascript using with react.j s
+
+1. Ts is static, complete time—>Prevents runtime errors by catching mistakes during development.
+
+2.Editors like VS Code can suggest props, methods, and variables automatically.
+Makes development faster and reduces typos.
+3. Easier debugging & refactoring
+4.Scalability in large codebases
+
+
+
+
+What is the difference between any, unknown, and never?
+	•	any: disables type checking (escape hatch).
+	•	unknown: safer than any; you must check type before using.
+	•	never: represents a value that never occurs (e.g., a function that always throws).
+
+
+
+WEAKMAP: A WeakMap in JavaScript is a collection of key-value pairs where the keys must be objects and are weakly referenced
+A weak reference means the reference does NOT prevent the object from being garbage collected.
+
+WEAKSET: A WeakSet in JavaScript is a collection of unique objects that holds weak references to its elements
+
+
+
+MONOLITHIC/MICROSERVICES
+A monolithic application is built as a single unified unit where all components are tightly coupled.
+A microservices architecture breaks the application into small, independent services, each handling a specific function.
+
+
+
+
+
+
+✅ async
+	•	Script is downloaded in parallel with HTML parsing.
+	•	Script is executed immediately once it’s downloaded.
+	•	HTML parsing is paused during execution.
+
+
+
+Html parsing then parallel script is downloaded after when script is downloaded , html parsing is paused and continue again once script is executed then html parsing continue
+
+✅ defer
+	•	Script is downloaded in parallel with HTML parsing.
+	•	Script is executed after HTML parsing is complete.
+	•	Execution happens in correct order (top → bottom).
+
+Html parsing +script is downloaded and after once html parsing is done script is executed
+
+
+
+

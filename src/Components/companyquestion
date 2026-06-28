@@ -1,0 +1,273 @@
+A parent div with 3 child divs you need to place one is bottom-left and second one is bottom-middle and third one is bottom-right
+
+
+(function () {
+    try {
+        throw new Error();
+    } catch (x) {
+        var x = 1, y = 2;
+        console.log(x);
+    }
+    console.log(x);
+    console.log(y);
+})();
+
+
+console.log(0 || 1); 
+console.log(1 || 2);
+console.log(0 && 1);
+console.log(1 && 2);
+
+
+Create a React component that allows a user to select a file and simulate an upload process. When the user clicks the upload button, display a progress bar that gradually fills from 0% to 100% and show the upload percentage. The progress bar should update dynamically using React state.
+
+(function(){
+  var a = b = 3;
+})();
+console.log(a);
+console.log(b);
+
+
+currying
+currying fn vs normal fn
+box model 
+pseudo classes & elements
+accessibility
+call, bind & apply  ===> when to use 
+event loop
+promise. all , promise. allsettled, promise.race
+hooks
+is useState asynchronous or synchronous ? how
+specificity in css
+redux / redux toolkit flow
+object/ array destructuring
+how to make an app responsive
+for of vs for in loop
+Error boundries
+debouncing & throttling
+sync & deferred
+test cases 
+
+
+************************************
+
+Given a string , remove all the duplicate elements from a string
+Program to remove duplicate elements from an arraylist.
+
+JS1. What is the difference b/w null, undefined and not defined.
+2. TypeOf null and undefined.
+3. What are promises and write JS code to implement promises on some online editor.
+4. What is closure.
+5. What is prototype inheritance.
+6. What is deep copy and shallow copy.
+7. What is Set in JS
+8. What is spread and rest operator.
+9. Write JS code to get unique elements from array without using set
+10. What is generator function.
+11. What is callback hell, async and await.
+12. Filter, map and reduce in JS
+
+REACT JS, REDUX
+
+1. What are Higher Order Components.
+2. What is pure component.
+3. Explain react lifecycle
+4. What is saga and why it is needed.
+5. Why useEffect hook is used.
+6. Difference between functional and class based components
+7. Why generator function is used in saga.
+8. Implement one react component where you have to fetch data from some api and display it on page. (React JS code)
+9. What is useState, useContext, useEffect
+10. Controlled and uncontrolled components
+11. What if I call setState in render method.
+12. The setState take 2 parameters. What is the 2nd parameter.
+
+console.log(typeof null); ---> Object
+console.log(typeof undefined); --> undefined
+console.log(typeof array & object & Boolean); --> function
+1. sum values : 
+const sum = a => b => b ? sum(a + b) : a;  -----> sum(1)(2)(3)();
+
+2. Sum two arrays :
+var a = [1, 2, 3, 4];
+var b = [1, 2, 3, 4, 5];
+
+var sumArray = a.reduce(function (acc, currentValue, currentIndex) {
+    return acc + currentValue + (b[currentIndex] || 0);
+}, 0);
+
+
+3.(find largest & find least number);
+let newArr = [20,120,111,215,54,78];
+
+let largest = Math.max.apply(0,newArr);
+let lowest = Math.min.apply(0,newArr);
+
+4.
+finding 2nd and 3rd largest :
+let secLar = [...new Set(newArr)].sort((a,b) => b -a)[1];
+let thirdLar = [...new Set(newArr)].sort((a,b) => b -a)[2];
+
+let least = [...new Set(newArr)].sort((a,b) => a - b)[0];
+let secLeast = [...new Set(newArr)].sort((a,b) => a - b)[1];
+
+5.Find Duplicates
+Finding Duplicates :
+let arr = [9,9,1,2,4,4,2,5,7,9,10,11];
+let findDup = [...new Set(arr)];
+
+6.Convert Array to Object :
+let arr = [20,120,111,215,54,78];
+Object.assign({},arr);
+
+7.merge 2 arrays :
+//var ab = [{1:'h'},{2:'e'},{3:'l'},{4:'l'},{5:'o'}];
+
+var output = a.map((key,ind) => ({[key]:b[ind]}));
+console.log(output);
+function methods(a,b){
+  return [a * b, a + b];
+}
+
+8.write a method(sum&multiply) both 
+const [sum,mul] = methods(2,3);
+console.log(sum);
+console.log(mul);
+
+9.ObjectDestructuring :
+let personOne = {
+  name: 'Pakki',
+  age: 28,
+  address : {
+    city: 'Vizag',
+    State: 'AP',
+    pincode: 530029
+  }
+}
+
+Output : (456)
+const {name, age} = personOne;
+console.log(name,age);const a = {};
+const b = {key: "b"}
+const c = {key: "c"}
+a[b] = 123;
+a[c] = 456;
+
+10.Compare two objects :
+console.log(a[b]);console.log({key: 22} == {key: 22}) //false
+console.log({key: 22} === {key: 22})// false
+
+
+How to print USER-JSON data in React table using an External API?
+
+Given a API(https://jsonplaceholder.typicode.com/users);
+
+using the above API we have write our code in react using with latest hooks(useState, useEffect)
+
+Answer : 
+
+import React, { useState, useEffect } from "react";
+
+function PersonData() {
+  const [data, setData] = useState([]);
+
+  const fetchData = () => {
+    fetch(`https://jsonplaceholder.typicode.com/users`)
+      .then((res) => res.json())
+      .then((actualdata) => {
+        setData(actualdata);
+        console.log(actualdata);
+      });
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  return (
+    <>
+      <tbody>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Username</th>
+          <th>E-mail</th>
+          <th>Company</th>
+          <th>Phone</th>
+          <th>City</th>
+          <th>Zipcode</th>
+          <th>Website</th>
+        </tr>
+        {data.map((item, index) => (
+          <tr key={index}>
+            <td>{item.id}</td>
+            <td>{item.name}</td>
+            <td>{item.username}</td>
+            <td>{item.email}</td>
+            <td>{item.company.name}</td>
+            <td>{item.phone}</td>
+            <td>{item.address.city}</td>
+            <td>{item.address.zipcode}</td>
+            <td>{item.website}</td>
+          </tr>
+        ))}
+      </tbody>
+    </>
+  );
+}
+
+export default PersonData;
+Write a code for Auto-Incrementing app using React.js?
+
+1.There are several ways they ask me to implement initial draft was i have developed Increment and Decerement using buttons where we have to manually increment and decrement using buttons with a conditiion on decrementing less than 0 it should not exceed to -ve values.
+2.In 2nd pattern they ask me to implement the auto-increment using useEffect write a method and a condition after 15 value should stop priniting values(here i have used SetInterval and ClearInterval)
+
+1.
+import React, { useState, useEffect } from "react";
+
+function AutoIncrementCounter() {
+  const [counter, setCounter] = useState(0);
+
+  useEffect(() => {
+    // This function will be called after the component is mounted
+    const intervalId = setInterval(() => {
+      setCounter((prevCounter) => prevCounter + 1);
+    }, 1000);
+
+    // This function will be called when the component is unmounted
+    return () => clearInterval(intervalId);
+  }, []); // The empty dependency array ensures that the effect runs only once, similar to componentDidMount
+
+  return (
+    <div>
+      <p>Counter: {counter}</p>
+    </div>
+  );
+}
+2.AutoIncrement :
+
+export default AutoIncrementCounter;
+
+
+import React, { useState } from "react";
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  const add = () => {
+    setCount(count + 1);
+  };
+  const min = () => {
+    if (count > 0) {
+      setCount(count - 1);
+    }
+  };
+  return (
+    <div>
+      <h1>Counter App: {count}</h1>
+      <button onClick={add}>Increment</button>
+      <button onClick={min}>Decrement</button>
+    </div>
+  );
+}
+
+export default Counter;
